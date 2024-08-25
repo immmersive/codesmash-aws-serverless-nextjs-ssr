@@ -1,4 +1,4 @@
-# CodeSmash Next.js boilerplate
+# CodeSmash Next.js Server-Side Rendered Boilerplate
 
 ## Next.js Boilerplate
  
