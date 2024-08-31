@@ -1,5 +1,8 @@
+export interface PageProps {
+  searchParams: { [key: string]: string | string[] | undefined };
+}
 
-export default function CatInfo({ searchParams }) {
+export default function CatInfo({ searchParams } : PageProps) {
   const kitty = searchParams.kitty;
 
   if (!kitty) {
