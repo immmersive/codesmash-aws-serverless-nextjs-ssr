@@ -1,9 +1,12 @@
 import Link from 'next/link'
-import React from 'react';
 
 export default async function Cats() {
   let res = await fetch(`https://tools.estevecastells.com/api/cats/v1?limit=10`);
   let data = await res.json();
+
+  // Environment Variable Example
+  let example_key = process.env.EXAMPLE_KEY
+  console.log(example_key);
 
   return (
     <>
