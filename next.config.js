@@ -3,8 +3,10 @@ const version = process.env.BUILD_VERSION;
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: "standalone", 
-  //assetPrefix: `https://this-is-for-nextjs-ssr.s3.amazonaws.com/`,
+  output: "standalone",
+  assetPrefix: process.env.NODE_ENV === 'production'
+  ? `https://this-is-for-nextjs-ssr.s3.amazonaws.com/`
+  : '',
   images: {
     unoptimized: true,
   },
