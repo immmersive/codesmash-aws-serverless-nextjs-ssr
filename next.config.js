@@ -5,7 +5,7 @@ const nextConfig = {
   reactStrictMode: true,
   output: "standalone",
   assetPrefix: process.env.NODE_ENV === 'production'
-  ? `https://this-is-for-nextjs-ssr.s3.amazonaws.com/`
+  ? 'https://codesmash-ssr-static.s3.us-east-1.amazonaws.com'
   : '',
   images: {
     unoptimized: true,
