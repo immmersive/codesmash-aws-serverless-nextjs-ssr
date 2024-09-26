@@ -14,7 +14,7 @@ export default async function Cats() {
         {data.map((cat : string) => (
           <li className="p-2" key={data.indexOf(cat) + 1}>
             <Link href={{
-              pathname: `${process.env.NEXT_PUBLIC_BASE_PATH}/cat-info/${data.indexOf(cat) + 1}`,
+              pathname: `./cat-info/${data.indexOf(cat) + 1}`,
               query: {
                 kitty: `${cat}`
               }
