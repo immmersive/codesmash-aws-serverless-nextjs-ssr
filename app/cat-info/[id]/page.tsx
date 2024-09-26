@@ -8,6 +8,7 @@ export default function CatInfo({ searchParams } : PageProps) {
   if (!kitty) {
     return <div>Cat not found</div>;
   }
+
   return (
     <>
       <div className="p-8 flex flex-col justify-center items-center">
