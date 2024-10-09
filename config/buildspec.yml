@@ -15,7 +15,7 @@ phases:
   build:
     commands:
       - npm run build     
-      - mkdir -p temp/_next/static && cp -r .next temp/_next/static
+      - mkdir -p temp/_next/static && cp -r .next/static temp/_next
       - zip -r9 temp/lambda.zip .next package.json package-lock.json next.config.js run.sh server.js public
       - cd temp
       - aws s3 rm s3://${s3_bucket} --recursive
