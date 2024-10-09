@@ -10,3 +10,4 @@ phases:
   build:
     commands:
       - echo deleting...
+      - aws s3 rm s3://${s3_bucket} --recursive
