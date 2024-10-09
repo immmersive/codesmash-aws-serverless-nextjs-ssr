@@ -4,9 +4,7 @@ const version = process.env.BUILD_VERSION;
 const nextConfig = {
   reactStrictMode: true,
   output: "standalone",
-  assetPrefix: process.env.NODE_ENV === 'production'
-  ? 'https://codesmash-ssr-static.s3.us-east-1.amazonaws.com'
-  : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? process.env.cloudfront : '',
   images: {
     unoptimized: true,
   },
