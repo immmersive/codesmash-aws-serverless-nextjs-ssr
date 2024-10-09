@@ -3,6 +3,7 @@ version: 0.2
 env:    
   variables:
     s3_bucket: "$s3_bucket"
+    cloudfront: "$cloudfront"
 
 phases:
 
@@ -14,6 +15,7 @@ phases:
       
   build:
     commands:
+      - grep -q '^cloudfront=' .env.local && sed -i "s/^cloudfront=.*/cloudfront=$cloudfront/" .env.local || echo "cloudfront=$cloudfront" >> .env.local
       - npm run build     
       - mkdir -p temp/_next/static && cp -r .next/static temp/_next
       - zip -r9 temp/lambda.zip .next package.json package-lock.json next.config.js run.sh server.js public
