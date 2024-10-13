@@ -26,7 +26,7 @@ export async function updateUser(formData: FormData) {
 export async function deleteUser(formData: FormData) {
     const id = formData.get('id')?.toString(); 
   
-    const response = await fetch(`${process.env.api}/user/${id}`, { method: 'DELETE' });
+    const response = await fetch(`${process.env.API}/user/${id}`, { method: 'DELETE' });
 
     if (!response.ok) {
         throw new Error('Failed to update user');
