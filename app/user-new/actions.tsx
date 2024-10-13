@@ -11,7 +11,7 @@ export async function addUser(formData: FormData) {
         throw new Error('Invalid form submission: missing required fields');
     }
  
-    const response = await fetch(`${process.env.api}/user/${id}`, {
+    const response = await fetch(`${process.env.API}/user/${id}`, {
         method: 'POST', 
         body: JSON.stringify({ name, info }),
     });
