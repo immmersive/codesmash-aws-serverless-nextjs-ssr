@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 
 export default async function User({ params }: { params: { id: string } }) {
   const { id } = params; 
-  const res = await fetch(`${process.env.api}/user/${id}`, { cache: 'no-store' });
+  const res = await fetch(`${process.env.API}/user/${id}`, { cache: 'no-store' });
   const data = await res.json();
 
   if (!data.pk) {
