@@ -16,8 +16,8 @@ phases:
       
   build:
     commands:
-      - grep -q '^cloudfront=' .env.local && sed -i "s/^cloudfront=.*/cloudfront=$cloudfront/" .env.local || echo "cloudfront=$cloudfront" >> .env.local
-      - grep -q '^api=' .env.local && sed -i "s/^api=.*/api=$api/" .env.local || echo "api=$api" >> .env.local
+      - grep -q '^CLOUDFRONT=' .env.local && sed -i "s/^CLOUDFRONT=.*/CLOUDFRONT=$cloudfront/" .env.local || echo "CLOUDFRONT=$cloudfront" >> .env.local
+      - grep -q '^API=' .env.production && sed -i "s/^API=.*/API=$api/" .env.production || echo "API=$api" >> .env.production
       - npm run build     
       - mkdir -p temp/_next/static && cp -r .next/static temp/_next
       - zip -r9 temp/lambda.zip .next package.json package-lock.json next.config.js run.sh server.js public
