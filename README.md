@@ -1,5 +1,7 @@
 # CodeSmash Next.js Server-Side Rendered Boilerplate
 
+![](https://github.com/immmersive/codesmash-aws-serverless-nextjs-ssr/blob/main/public/codesmash.png)
+
 ## Next.js Boilerplate
  
 
