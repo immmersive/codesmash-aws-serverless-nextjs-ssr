@@ -1,11 +1,12 @@
 import { updateUser, deleteUser } from './actions'; 
-import Link from 'next/link';  
+import Link from 'next/link';
+import { Repo } from '../../Repo'
 
 export const dynamic = 'force-dynamic'; 
 
 export default async function User({ params }: { params: { id: string } }) {
   const { id } = params; 
-  const res = await fetch(`${process.env.API}/user/${id}`, { cache: 'no-store' });
+  const res = await fetch(`${new Repo().getCloudFrontApiUrl()}/user/${id}`, { cache: 'no-store' });
   const data = await res.json();
 
   if (!data.pk) {
