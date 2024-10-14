@@ -4,8 +4,9 @@ env:
   variables:
     s3_bucket: "$s3_bucket"
     cloudfront: "$cloudfront"
+    hosting_api: "$hosting_api"
     api: "$api"
-
+ 
 phases:
 
   install:
@@ -16,7 +17,8 @@ phases:
       
   build:
     commands:
-      - grep -q '^CLOUDFRONT=' .env.local && sed -i "s/^CLOUDFRONT=.*/CLOUDFRONT=$cloudfront/" .env.local || echo "CLOUDFRONT=$cloudfront" >> .env.local
+      - grep -q '^CLOUDFRONT=' .env.production && sed -i "s/^CLOUDFRONT=.*/CLOUDFRONT=$cloudfront/" .env.production || echo "CLOUDFRONT=$cloudfront" >> .env.production
+      - grep -q '^HOSTING_API=' .env.production && sed -i "s/^HOSTING_API=.*/HOSTING_API=$hosting_api/" .env.production || echo "HOSTING_API=$hosting_api" >> .env.production
       - grep -q '^API=' .env.production && sed -i "s/^API=.*/API=$api/" .env.production || echo "API=$api" >> .env.production
       - npm run build     
       - mkdir -p temp/_next/static && cp -r .next/static temp/_next
