@@ -1,7 +1,8 @@
 import Link from 'next/link'
+import { Repo } from '../Repo'
 
 export default async function Users() {
-  let res = await fetch(`${process.env.API}/user`, { cache: 'no-store' });
+  let res = await fetch(`${new Repo().getCloudFrontApiUrl()}/user`, { cache: 'no-store' });
   let data = await res.json();
   
   return (
