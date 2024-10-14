@@ -1,6 +1,7 @@
 "use server"; 
 
 import { redirect } from 'next/navigation';
+import { Repo } from '../../Repo'
 
 export async function updateUser(formData: FormData) {
     const id = formData.get('id')?.toString();
@@ -11,7 +12,7 @@ export async function updateUser(formData: FormData) {
         throw new Error('Invalid form submission: missing required fields');
     }
  
-    const response = await fetch(`${process.env.api}/user/${id}`, {
+    const response = await fetch(`${new Repo().getCloudFrontApiUrl()}/user/${id}`, {
         method: 'PUT', 
         body: JSON.stringify({ name, info }),
     });
@@ -26,7 +27,7 @@ export async function updateUser(formData: FormData) {
 export async function deleteUser(formData: FormData) {
     const id = formData.get('id')?.toString(); 
   
-    const response = await fetch(`${process.env.API}/user/${id}`, { method: 'DELETE' });
+    const response = await fetch(`${new Repo().getCloudFrontApiUrl()}/user/${id}`, { method: 'DELETE' });
 
     if (!response.ok) {
         throw new Error('Failed to update user');
