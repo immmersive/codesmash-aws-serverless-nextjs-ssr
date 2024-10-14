@@ -4,6 +4,8 @@ env:
   variables:
     s3_bucket: "$s3_bucket"
     cloudfront: "$cloudfront"
+    hosting_api: "$hosting_api"
+    api: "$api"
 
 phases: 
       
