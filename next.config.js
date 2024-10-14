@@ -8,6 +8,16 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+    experimental: {
+      serverActions: {
+        allowedForwardedHosts: [
+          process.env.HOSTING_API
+        ],
+        allowedOrigins: [ 
+          process.env.CLOUDFRONT
+        ]
+      }
+    }
 };
 
 // Use ES module export
