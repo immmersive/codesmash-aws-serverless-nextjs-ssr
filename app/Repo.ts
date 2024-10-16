@@ -24,4 +24,11 @@ export class Repo
     {
         return process.env.API as string;
     }
+
+    getImageUrl(image: string) : string
+    {
+        const assetUrl = this.getCloudFrontUrl() + '/_next/static/'; 
+ 
+        return process.env.NODE_ENV === 'production' ? assetUrl + image : image;
+    }
 }
