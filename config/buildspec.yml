@@ -22,6 +22,7 @@ phases:
       - grep -q '^API=' .env.production && sed -i "s/^API=.*/API=$api/" .env.production || echo "API=$api" >> .env.production
       - npm run build     
       - mkdir -p temp/_next/static && cp -r .next/static temp/_next
+      - cp -r public/* temp/_next/static
       - zip -r9 temp/lambda.zip .next package.json package-lock.json next.config.js run.sh server.js public
       - cd temp
       - aws s3 rm s3://${s3_bucket} --recursive
