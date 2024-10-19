@@ -4,7 +4,7 @@ const version = process.env.BUILD_VERSION;
 const nextConfig = {
   reactStrictMode: true,
   output: "standalone",
-  assetPrefix: process.env.NODE_ENV === 'production' ? process.env.CLOUDFRONT : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://' + process.env.CLOUDFRONT : '',
   images: {
     unoptimized: true,
   },
