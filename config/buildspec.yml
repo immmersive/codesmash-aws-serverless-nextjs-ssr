@@ -12,7 +12,7 @@ phases:
   install:
     commands:
       - n 18
-      - npm i npm@latest -g
+      - npm i npm@10.8.2 -g
       - npm i
       
   build:
